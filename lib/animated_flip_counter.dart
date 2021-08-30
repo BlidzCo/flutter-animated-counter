@@ -31,6 +31,9 @@ class AnimatedFlipCounter extends StatelessWidget {
   /// The actual [value] will be rounded to the nearest digit.
   final int fractionDigits;
 
+  /// Align each digits within its container box
+  final TextAlign digitAlign;
+
   const AnimatedFlipCounter({
     Key? key,
     required this.value,
@@ -40,6 +43,7 @@ class AnimatedFlipCounter extends StatelessWidget {
     this.prefix,
     this.suffix,
     this.fractionDigits = 0,
+    this.digitAlign = TextAlign.center,
   })  : assert(fractionDigits >= 0, "fractionDigits must be non-negative"),
         super(key: key);
 
@@ -130,6 +134,7 @@ class _SingleDigitFlipCounter extends StatelessWidget {
   final Curve curve;
   final Size size;
   final Color color;
+  final TextAlign digitAlign;
 
   const _SingleDigitFlipCounter({
     Key? key,
@@ -138,6 +143,7 @@ class _SingleDigitFlipCounter extends StatelessWidget {
     required this.curve,
     required this.size,
     required this.color,
+    this.digitAlign = TextAlign.center,
   }) : super(key: key);
 
   @override
@@ -186,7 +192,7 @@ class _SingleDigitFlipCounter extends StatelessWidget {
       child: Text(
         "$digit",
         style: TextStyle(color: color.withOpacity(opacity)),
-        textAlign: TextAlign.center,
+        textAlign: digitAlign,
       ),
     );
   }
