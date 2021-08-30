@@ -181,9 +181,12 @@ class _SingleDigitFlipCounter extends StatelessWidget {
   }) {
     return Positioned(
       bottom: offset,
+      right: 0,
+      left: 0,
       child: Text(
         "$digit",
         style: TextStyle(color: color.withOpacity(opacity)),
+        textAlign: TextAlign.center,
       ),
     );
   }
